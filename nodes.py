@@ -204,7 +204,7 @@ class SongBloomModelLoader:
                 )
             
             print(f"Loading new model with dtype: {dtype}")
-            model = SongBloom_Sampler.build_from_trainer(cfg, strict=True, dtype=torch_dtype, safetensor_path=safetensor_path)
+            model = SongBloom_Sampler.build_from_trainer(cfg, strict=False, dtype=torch_dtype, safetensor_path=safetensor_path)
             model.prompt_duration = cfg.sr * audio_len
             if hasattr(cfg, 'inference') and cfg.inference:
                 model.set_generation_params(**cfg.inference)
